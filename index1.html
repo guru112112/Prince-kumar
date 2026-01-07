@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chautari Tas House | Sundhara</title>
+
+<meta name="description" content="Chautari Tas House - Authentic Nepali Cuisine in Sundhara, Kathmandu. Explore our special Tas, Momos, Burgers, and more. Visit us today!">
+<meta name="keywords" content="Chautari Tas House, Nepali Cuisine, Sundhara, Kathmandu, Mutton Tas, Momos, Menu">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<style>
+:root{
+    --primary:#e65100;
+    --secondary:#ff9800;
+    --light:#fff;
+    --bg:#fff8f0;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:#e65100;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+}
+
+/* LOGO WATERMARK */
+body::before{
+    content:"";
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:url('logo.jpg') center/contain no-repeat;
+    width:80%;
+    height:80%;
+    opacity:0.04;
+    z-index:-1;
+    animation:slowZoom 40s infinite alternate;
+}
+
+/* NAVBAR */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    transition:0.4s;
+}
+
+header.scrolled{
+    background:var(--primary);
+    box-shadow:0 5px 20px #e65100;
+}
+
+nav{
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 30px;
+}
+
+.logo img{
+    height:80px;
+    animation:logoFloat 3s ease-in-out infinite;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:600;
+    transition:0.3s;
+}
+
+header.scrolled nav ul li a{
+    color:#fff;
+}
+
+nav ul li a:hover{
+    color:var(--secondary);
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.3),rgba(0, 0, 0, 0.5)),
+    url('mutton.jpg') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+}
+
+.hero h1{
+    font-size:3.8rem;
+    margin-bottom:15px;
+    font-color: #e65100;
+}
+
+.hero p{
+    font-size:1.3rem;
+    margin-bottom:35px;
+}
+
+.btn{
+    padding:15px 40px;
+    background:var(--primary);
+    color:#fff;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:var(--secondary);
+    transform:scale(1.05);
+}
+
+/* SECTION */
+section{
+    padding:120px 30px;
+    max-width:1300px;
+    margin:auto;
+}
+
+/* SCROLL ANIMATION */
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.8rem;
+    color:var(--primary);
+}
+
+/* ABOUT */
+.about{
+    text-align:center;
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+/* MENU */
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
+}
+
+.menu-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.menu-card:hover{
+    transform:translateY(-10px);
+}
+
+.menu-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.menu-card h3{
+    padding:15px;
+    color:var(--primary);
+}
+
+.menu-card p{
+    padding:0 15px 10px;
+    font-weight:600;
+}
+
+.menu-card .price{
+    padding:0 15px 20px;
+    color:var(--secondary);
+    font-weight:700;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* TESTIMONIALS */
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.testimonial-card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+.testimonial-card p{
+    font-style:italic;
+    margin-bottom:15px;
+}
+
+.testimonial-card h4{
+    color:var(--primary);
+}
+
+/* LOCATION */
+.location{
+    background:#fff;
+    border-radius:25px;
+    padding:80px 20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* MAP */
+.map-container{
+    margin-top:40px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.map-container iframe{
+    width:100%;
+    height:420px;
+    border:0;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+    margin-top:40px;
+}
+
+/* BACK TO TOP */
+#topBtn{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:var(--primary);
+    color:#e65100;
+    border:none;
+    padding:15px 18px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    display:none;
+    z-index:1000;
+    transition:0.3s;
+}
+
+#topBtn:hover{
+    background:var(--secondary);
+}
+
+/* ONLINE ORDER BUTTON */
+.orderBtn{
+    position:fixed;
+    bottom:30px;
+    left:30px;
+    background:#e65100;
+    color:#fff;
+    padding:15px 20px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    z-index:1000;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* FOOTER */
+footer{
+    background:#e65100;
+    text-align:center;
+    padding:25px;
+    color:#ccc;
+}
+
+/* ANIMATIONS */
+@keyframes logoFloat{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes slowZoom{
+    from{transform:translate(-50%,-50%) scale(1);}
+    to{transform:translate(-50%,-50%) scale(1.08);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav ul{gap:15px;}
+    .hero h1{font-size:2.5rem;}
+    .orderBtn{padding:12px 15px;font-size:14px;}
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<nav>
+<div class="logo">
+<img src="logo.jpg" alt="Chautari Tas House">
+</div>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#testimonials">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h1>Chautari Tas House</h1>
+<p>Sundhara, Opposite Dharahara<br>Authentic Nepali Taste</p>
+<a href="#menu" class="btn">Explore Menu</a>
+</div>
+</section>
+
+<section id="about" class="about reveal">
+<div class="section-title">
+<h2>About Us</h2>
+</div>
+<p>
+Chautari Tas House proudly serves authentic Nepali cuisine inspired by
+traditional recipes and rich local flavors. From our famous Tas to handmade
+Momos, every dish reflects quality, heritage, and hospitality.
+</p>
+</section>
+
+<section id="menu" class="reveal">
+<div class="section-title">
+<h2>Our Special Menu</h2>
+</div>
+
+<div class="menu">
+<div class="menu-card"><img src="mutton.jpg"><h3>Mutton Tas</h3><p>Signature Nepali spicy mutton.</p><div class="price">₹450</div></div>
+<div class="menu-card"><img src="chicken.jpg"><h3>Chicken Tas</h3><p>Flavorful chicken delight.</p><div class="price">₹400</div></div>
+<div class="menu-card"><img src="stickfood.jpg"><h3>Stick Food</h3><p>Grilled skewers.</p><div class="price">₹200</div></div>
+<div class="menu-card"><img src="momo.jpg"><h3>Momo</h3><p>Fresh handmade momos.</p><div class="price">₹250</div></div>
+<div class="menu-card"><img src="burger.jpg"><h3>Burger</h3><p>Juicy burgers.</p><div class="price">₹300</div></div>
+<div class="menu-card"><img src="chowmein.jpg"><h3>Chowmein</h3><p>Street noodles.</p><div class="price">₹220</div></div>
+<div class="menu-card"><img src="friedrice.jpg"><h3>Fried Rice</h3><p>Classic fried rice.</p><div class="price">₹220</div></div>
+<div class="menu-card"><img src="sekuwa.jpg"><h3>Sekuwa</h3><p>Charcoal grilled meat.</p><div class="price">₹350</div></div>
+</div>
+</section>
+
+<section id="gallery" class="reveal">
+<div class="section-title">
+<h2>Gallery</h2>
+</div>
+<div class="gallery">
+<img src="mutton.jpg">
+<img src="momo.jpg">
+<img src="burger.jpg">
+<img src="stickfood.jpg">
+<img src="chowmein.jpg">
+<img src="friedrice.jpg">
+<img src="sekuwa.jpg">
+<img src="restaurant_interior.jpg">
+</div>
+</section>
+
+<section id="testimonials" class="reveal">
+<div class="section-title">
+<h2>Customer Reviews</h2>
+</div>
+<div class="testimonials">
+<div class="testimonial-card">
+<p>"Best Tas in Kathmandu! Highly recommended."</p>
+<h4>- Ramesh P.</h4>
+</div>
+<div class="testimonial-card">
+<p>"Amazing flavors and great service."</p>
+<h4>- Sita M.</h4>
+</div>
+<div class="testimonial-card">
+<p>"Perfect spot for family dining."</p>
+<h4>- Anil K.</h4>
+</div>
+</div>
+</section>
+
+<section id="location" class="location reveal">
+<h2>Visit Us</h2>
+<p>📍 Sundhara, Opposite Dharahara, Kathmandu</p>
+<div class="map-container">
+<iframe src="https://www.google.com/maps?q=Dharahara%20Sundhara%20Kathmandu&output=embed" loading="lazy"></iframe>
+</div>
+</section>
+
+<section id="contact" class="contact reveal">
+<h2>Contact Us</h2>
+<p>📞 +977-XXXXXXXX</p>
+<p>⏰ Open Daily: 10 AM – 10 PM</p>
+<div style="margin-top:15px;">
+<a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+<a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+<a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+</div>
+</section>
+
+<!-- BACK TO TOP -->
+<button id="topBtn" onclick="topFunction()"><i class="fas fa-arrow-up"></i></button>
+
+<!-- ONLINE ORDER -->
+<a href="https://wa.me/977XXXXXXXX" target="_blank" class="orderBtn"><i class="fab fa-whatsapp"></i> Order Now</a>
+
+<footer>
+<p>© 2026 Chautari Tas House | All Rights Reserved</p>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        if(elementTop < windowHeight - 120){
+            el.classList.add('active');
+        }
+    });
+});
+
+// Navbar scroll change
+const header = document.getElementById("header");
+window.addEventListener("scroll",()=>{
+    if(window.scrollY > 50){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
+});
+
+// Back to top button
+const topBtn = document.getElementById("topBtn");
+window.onscroll = function() {
+    if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
+        topBtn.style.display="block";
+    }else{
+        topBtn.style.display="none";
+    }
+};
+function topFunction(){
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+
+</body>
+</html>
